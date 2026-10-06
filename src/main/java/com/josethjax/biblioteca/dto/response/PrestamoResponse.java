@@ -1,24 +1,25 @@
 package com.josethjax.biblioteca.dto.response;
 
-import com.josethjax.biblioteca.entity.EstadoPrestamo;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class PrestamoResponse {
 
     private Long id;
     private Long usuarioId;
-    private String usuarioNombre;
+    private String nombreUsuario;
     private Long libroId;
-    private String libroTitulo;
+    private String tituloLibro;
     private LocalDate fechaPrestamo;
     private LocalDate fechaDevolucionEsperada;
     private LocalDate fechaDevolucionReal;
-    private EstadoPrestamo estado;
+    private String estado;
 }

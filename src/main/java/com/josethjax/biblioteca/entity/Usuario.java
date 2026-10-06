@@ -25,11 +25,23 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private EstadoUsuario estado;
+    private EstadoUsuario estado = EstadoUsuario.ACTIVO;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Rol rol;
+    private Rol rol = Rol.LECTOR;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.estado == null) {
+            this.estado = EstadoUsuario.ACTIVO;
+        }
+        if (this.rol == null) {
+            this.rol = Rol.LECTOR;
+        }
+    }
 }

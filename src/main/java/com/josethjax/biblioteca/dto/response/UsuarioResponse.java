@@ -1,6 +1,5 @@
 package com.josethjax.biblioteca.dto.response;
 
-import com.josethjax.biblioteca.entity.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,12 +7,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class AuthResponse {
+@NoArgsConstructor
+public class UsuarioResponse {
 
-    private String token;
-    private String email;
+    private Long id;
     private String nombre;
-    private Rol rol;
+    private String email;
+    private String rol;
 }
