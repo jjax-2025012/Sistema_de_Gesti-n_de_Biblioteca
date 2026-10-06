@@ -1,13 +1,17 @@
 package com.josethjax.biblioteca.dto.request;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+import java.time.LocalDate;
+
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class PrestamoRequest {
 
     @NotNull(message = "El ID del usuario es obligatorio")
@@ -16,5 +20,5 @@ public class PrestamoRequest {
     @NotNull(message = "El ID del libro es obligatorio")
     private Long libroId;
 
-    private Integer diasPrestamo;
+    private LocalDate fechaDevolucionEsperada;
 }
