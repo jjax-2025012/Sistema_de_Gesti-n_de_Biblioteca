@@ -2,12 +2,12 @@ package com.josethjax.biblioteca.service.impl;
 
 import com.josethjax.biblioteca.dto.request.PrestamoRequest;
 import com.josethjax.biblioteca.dto.response.PrestamoResponse;
+import com.josethjax.biblioteca.entity.EstadoPrestamo;
+import com.josethjax.biblioteca.entity.Libro;
+import com.josethjax.biblioteca.entity.Prestamo;
+import com.josethjax.biblioteca.entity.Usuario;
 import com.josethjax.biblioteca.exception.BadRequestException;
 import com.josethjax.biblioteca.exception.ResourceNotFoundException;
-import com.josethjax.biblioteca.model.EstadoPrestamo;
-import com.josethjax.biblioteca.model.Libro;
-import com.josethjax.biblioteca.model.Prestamo;
-import com.josethjax.biblioteca.model.Usuario;
 import com.josethjax.biblioteca.repository.LibroRepository;
 import com.josethjax.biblioteca.repository.PrestamoRepository;
 import com.josethjax.biblioteca.repository.UsuarioRepository;

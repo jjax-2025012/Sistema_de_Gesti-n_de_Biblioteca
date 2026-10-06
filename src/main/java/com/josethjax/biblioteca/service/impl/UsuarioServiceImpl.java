@@ -2,6 +2,7 @@ package com.josethjax.biblioteca.service.impl;
 
 import com.josethjax.biblioteca.dto.request.UsuarioRequest;
 import com.josethjax.biblioteca.dto.response.UsuarioResponse;
+import com.josethjax.biblioteca.entity.EstadoUsuario;
 import com.josethjax.biblioteca.entity.Rol;
 import com.josethjax.biblioteca.entity.Usuario;
 import com.josethjax.biblioteca.exception.BadRequestException;
@@ -28,7 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new BadRequestException("El email ya se encuentra registrado");
         }
 
-        Rol rol = Rol.ROLE_USER;
+        Rol rol = Rol.LECTOR;
         if (request.getRol() != null && !request.getRol().isBlank()) {
             try {
                 rol = Rol.valueOf(request.getRol().toUpperCase());
@@ -41,6 +42,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .nombre(request.getNombre())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
+                .estado(EstadoUsuario.ACTIVO)
                 .rol(rol)
                 .build();
 

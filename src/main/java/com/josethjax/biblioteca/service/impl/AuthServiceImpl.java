@@ -3,6 +3,7 @@ package com.josethjax.biblioteca.service.impl;
 import com.josethjax.biblioteca.dto.request.AuthLoginRequest;
 import com.josethjax.biblioteca.dto.request.AuthRegisterRequest;
 import com.josethjax.biblioteca.dto.response.AuthResponse;
+import com.josethjax.biblioteca.entity.EstadoUsuario;
 import com.josethjax.biblioteca.entity.Rol;
 import com.josethjax.biblioteca.entity.Usuario;
 import com.josethjax.biblioteca.exception.BadRequestException;
@@ -40,7 +41,7 @@ public class AuthServiceImpl implements AuthService {
                 .token(token)
                 .email(usuario.getEmail())
                 .nombre(usuario.getNombre())
-                .rol(usuario.getRol().name())
+                .rol(usuario.getRol()) // <--- Pasar el enum directamente sin .name()
                 .build();
     }
 
@@ -54,7 +55,8 @@ public class AuthServiceImpl implements AuthService {
                 .nombre(request.getNombre())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .rol(Rol.ROLE_USER)
+                .estado(EstadoUsuario.ACTIVO)
+                .rol(Rol.LECTOR)
                 .build();
 
         usuarioRepository.save(usuario);
@@ -69,7 +71,7 @@ public class AuthServiceImpl implements AuthService {
                 .token(token)
                 .email(usuario.getEmail())
                 .nombre(usuario.getNombre())
-                .rol(usuario.getRol().name())
+                .rol(usuario.getRol()) // <--- Pasar el enum directamente sin .name()
                 .build();
     }
 }
