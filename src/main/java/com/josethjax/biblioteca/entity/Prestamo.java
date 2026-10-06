@@ -37,4 +37,17 @@ public class Prestamo {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoPrestamo estado;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.fechaPrestamo == null) {
+            this.fechaPrestamo = LocalDate.now();
+        }
+        if (this.fechaDevolucionEsperada == null) {
+            this.fechaDevolucionEsperada = this.fechaPrestamo.plusDays(14);
+        }
+        if (this.estado == null) {
+            this.estado = EstadoPrestamo.ACTIVO;
+        }
+    }
 }
