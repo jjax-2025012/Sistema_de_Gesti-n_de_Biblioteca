@@ -1,0 +1,6 @@
+-- Los usuarios semilla se crean desde DataInitializer.java al arrancar la aplicacion.
+-- Spring BCryptPasswordEncoder genera los hashes en tiempo de ejecucion, garantizando
+-- que siempre coincidan con las contrasenas en texto plano definidas en el codigo.
+--   admin@biblioteca.com  / Admin123*   (ADMIN)
+--   biblio@biblioteca.com / Biblio123*  (BIBLIOTECARIO)
+--   lector@biblioteca.com / Lector123*  (LECTOR)
