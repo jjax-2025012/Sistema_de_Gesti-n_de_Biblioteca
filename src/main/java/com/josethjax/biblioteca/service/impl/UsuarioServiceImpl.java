@@ -109,6 +109,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .nombre(usuario.getNombre())
                 .email(usuario.getEmail())
                 .rol(usuario.getRol().name())
+                .estado(usuario.getEstado().name())
                 .build();
     }
 }

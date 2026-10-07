@@ -15,4 +15,5 @@ public class UsuarioResponse {
     private String nombre;
     private String email;
     private String rol;
-}
+    private String estado;
+}
