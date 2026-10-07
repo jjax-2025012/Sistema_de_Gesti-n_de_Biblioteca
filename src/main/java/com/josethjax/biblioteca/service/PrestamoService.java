@@ -17,5 +17,11 @@ public interface PrestamoService {
 
     List<PrestamoResponse> obtenerPorUsuario(Long usuarioId);
 
+    List<PrestamoResponse> findByUsuarioEmail(String email);
+
+    List<PrestamoResponse> obtenerMisPrestamos(String email);
+
     List<PrestamoResponse> obtenerActivos();
+
+    List<PrestamoResponse> obtenerAtrasados();
 }
